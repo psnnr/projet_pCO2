@@ -1,0 +1,82 @@
+# toml configuration file for the pCO2 system
+
+title = "pCO2 system configuration"
+
+[owner]
+name = "Paul Sonnier"
+
+[time]
+# rinsing time of all differents cycles in seconds
+rinsing_azote_cycle = "180"
+rinsing_low_standard = "180"
+rinsing_medium_standard = "180"
+rinsing_high_standard = "180"
+rinsing_atmospheric_air = "240"
+rinsing_sea_water = "600"
+
+# mesuring time of all differents cycles in seconds
+mesure_azote_cycle = "180"
+mesure_low_standard = "180"
+mesure_medium_standard = "180"
+mesure_high_standard = "180"
+mesure_atmospheric_air = "180"
+mesure_sea_water = "18000"
+
+[peripheral]
+# electronic device activate or desactive (on/off)
+IR_analyzer = "on" #necessary to run the system
+GPS = "on"
+temperature_sensor = "on"
+oxygen_sensor = "on"
+interface_box_chip = "on" #necessary to run the system
+barometer_atmospheric = "on" #can't work without the box's chip
+barometer_equi = "on" #can't work without the box's chip
+thermosalinometer = "off"
+
+[IR_analyzer]
+active = "on"
+serial_port = "COM12"
+baudrate = "9600"
+data_bits = "EIGHTBITS"
+stops_bits = "STOPBITS_ONE"
+parity = "PARITY_NONE"
+
+[GPS]
+active = "on"
+serial_port = "COM16"
+baudrate = "4800"
+data_bits = "EIGHTBITS"
+stops_bits = "STOPBITS_ONE"
+parity = "PARITY_NONE"
+
+[temperature_sensor]
+active = "on"
+serial_port = "COM15"
+baudrate = "9600"
+data_bits = "EIGHTBITS"
+stops_bits = "STOPBITS_ONE"
+parity = "PARITY_NONE"
+
+[oxygen_sensor]
+active = "on"
+serial_port = "COM13"
+baudrate = "9600"
+data_bits = "EIGHTBITS"
+stops_bits = "STOPBITS_ONE"
+parity = "PARITY_NONE"
+
+[interface_box_chip]
+active = "on"
+serial_port = "COM2"
+baudrate = "9600"
+data_bits = "EIGHTBITS"
+stops_bits = "STOPBITS_ONE"
+parity = "PARITY_NONE"
+
+[thermosalinometer]
+active = "off"
+serial_port = ""
+baudrate = ""
+data_bits = ""
+stops_bits = ""
+parity = ""
