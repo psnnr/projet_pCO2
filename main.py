@@ -86,14 +86,14 @@ class config_elec_periph():
     def __init__(self, file = "configuration.toml"):
         parsed_toml = toml.load(file,_dict = dict)
         periph = parsed_toml['peripheral']
-        IR_analyzer = parsed_toml['IR_analyzer']
-        GPS = parsed_toml['GPS']
+        ir_analyzer = parsed_toml['IR_analyzer']
+        gps = parsed_toml['GPS']
         temperature_sensor = parsed_toml['temperature_sensor']
         oxygen_sensor = parsed_toml['oxygen_sensor']
         interface_box_chip = parsed_toml['interface_box_chip']
         thermosalinometer = parsed_toml['thermosalinometer']
 
-        print(interface_box_chip)
+        print(gps)
 
 
 
