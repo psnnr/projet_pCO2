@@ -1,4 +1,6 @@
 import toml
+from init_electronic_device import init_time
+from init_electronic_device import init_elec_device
 
 #params = {}
 #with open("configuration.toml", 'r', encoding='utf-8') as fp:
@@ -93,8 +95,16 @@ class config_elec_periph():
         interface_box_chip = parsed_toml['interface_box_chip']
         thermosalinometer = parsed_toml['thermosalinometer']
 
-        print(gps)
 
+        self.periph = periph
+        self.ir_analyzer = ir_analyzer
+        self.gps = gps
+        self.temperature_sensor = temperature_sensor
+        self.oxygen_sensor = oxygen_sensor
+        self.interface_box_chip = interface_box_chip
+        self.thermosalinometer = thermosalinometer
+
+      
 
 
 
@@ -103,4 +113,4 @@ time = config_time()
 
 connec = config_elec_periph()
 
-
+init_elec_device(connec)
