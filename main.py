@@ -1,6 +1,7 @@
 import toml
-from init_electronic_device import init_time
-from init_electronic_device import init_elec_device
+
+import init_electronic_device as IED
+#from init_electronic_device import init_elec_device
 
 #params = {}
 #with open("configuration.toml", 'r', encoding='utf-8') as fp:
@@ -17,7 +18,7 @@ class config_time():
     # contain all configured time for all cycles
 
     #def __init__(self):
-    #    self.t_rinsing_azote = 0
+    #    self.t_rinsing_azote = 180
     #    self.t_rinsing_low_standard = 180
     #    self.t_rinsing_med_standard = 180
     #    self.t_rinsing_high_standard = 180
@@ -104,8 +105,6 @@ class config_elec_periph():
         self.interface_box_chip = interface_box_chip
         self.thermosalinometer = thermosalinometer
 
-      
-
 
 
 # class intances
@@ -113,4 +112,6 @@ time = config_time()
 
 connec = config_elec_periph()
 
-init_elec_device(connec)
+IED.init_time(time)
+
+#init_elec_device(connec)

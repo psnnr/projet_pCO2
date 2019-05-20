@@ -12,3 +12,5 @@ def init_elec_device(cls):
     parity=cls.gps["parity"],
     stopbits=cls.gps["stops_bits"],
     bytesize= serial.)
+
+    print(cls.gps["baudrate"])
