@@ -1,7 +1,7 @@
 import toml
+import serial
 
 import init_electronic_device as IED
-#from init_electronic_device import init_elec_device
 
 #params = {}
 #with open("configuration.toml", 'r', encoding='utf-8') as fp:
@@ -15,7 +15,7 @@ def load_params(fname = "configuration.toml",param = ""):
 
 
 class config_time():
-    # contain all configured time for all cycles
+    ### contain all configured time for all cycles
 
     #def __init__(self):
     #    self.t_rinsing_azote = 180
@@ -84,7 +84,7 @@ class config_time():
 
 class config_elec_periph():
 
-    # contain all inforation about electronical device connexion
+    ### contain all inforation about electronical device connexion
 
     def __init__(self, file = "configuration.toml"):
         parsed_toml = toml.load(file,_dict = dict)
@@ -105,13 +105,52 @@ class config_elec_periph():
         self.interface_box_chip = interface_box_chip
         self.thermosalinometer = thermosalinometer
 
+    def get_periph(self):
+        return self.periph
+
+    def get_ir_analyzer(self):
+        return self.ir_analyzer
+
+    def get_gps_serial_port():
+        return self.gps["serial_port"]
+
+    def get_gps_baudrate():
+        return self.gps["baudrate"]
+
+    def get_gps_parity():
+        return self.gps["parity"]
+
+    def get_gps_stops_bits():
+        return self.gps["stops_bits"]
+    
+    def get_gps_bytesize():
+        return self.gps["bytesize"]
 
 
-# class intances
+
+
+
+def init_elec_device(cls):
+
+    #ser_GPS = serial.Serial(str(cls.get_gps_serial_port),
+    #baudrate=str(cls.get_gps_baudrate),
+    #parity=str(cls.get_gps_parity),
+    #stopbits=str(cls.get_gps_stops_bits),
+    #bytesize= int(str(cls.get_gps_bytesize)))
+
+    a = cls.get_gps_baudrate
+    print(a)
+
+### class intances
 time = config_time()
 
 connec = config_elec_periph()
 
 IED.init_time(time)
+
+#info = connec.get_periph()
+#print(info)
+
+init_elec_device(connec)
 
 #init_elec_device(connec)
