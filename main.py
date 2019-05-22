@@ -81,6 +81,7 @@ class config_time():
     def get_t_mesure_sea_water(self):
         return self.__t_mesure_sea_water
 
+
 class config_elec_periph():
 
     ### contain all inforation about electronical device connexion
@@ -226,6 +227,27 @@ class config_elec_periph():
 
     def get_gps_bytesize(self):
         return self.__gps_data_bits
+
+    ### getter temperature sensor
+    
+    def get_temperature_sensor_active(self):
+        return self.__temperature_sensor_active
+
+    def get_temperature_sensor_serial_port(self):
+        return self.__temperature_sensor_serial_port
+
+    def get_temperature_sensor_baudrate(self):
+        return self.__temperature_sensor_baudrate
+
+    def get_temperature_sensor_stops_bits(self):
+        return self.__temperature_sensor_stops_bits
+
+    def get_temperature_sensor_parity(self):
+        return self.__temperature_sensor_parity
+
+    def get_temperature_sensor_bytesize(self):
+        return self.__temperature_sensor_data_bits
+
 
     ### getter oxygen sensor
 
