@@ -308,6 +308,83 @@ class config_elec_periph():
 
     def get_thermosalinometer_bytesize(self):
         return self.__thermosalinometer_data_bits
+
+
+class serial_connexion():
+
+    def __init__(self,object):
+
+        ### 5 attributes : serial connexion informations about
+        ### GPS, IR analyser, interface box ship, oxygen and temperature sensor
+
+        ### initialisation gps attribute and connexion
+
+        self.serial_gps = serial.Serial(str(object.get_interface_box_chip_serial_port()),
+        baudrate=int(object.get_interface_box_chip_baudrate()),
+        parity=eval("serial." +(object.get_interface_box_chip_parity())),
+        stopbits=eval("serial."+(object.get_interface_box_chip_stops_bits())),
+        bytesize = eval("serial."+ object.get_interface_box_chip_bytesize()))
+
+        ### initialisation IR analyser attribute and connexion
+
+        self.serial_IR_analyzer = serial.Serial(str(object.get_IR_analyzer_serial_port()),
+        baudrate=int(object.get_IR_analyzer_baudrate()),
+        parity=eval("serial." +(object.get_IR_analyzer_parity())),
+        stopbits=eval("serial."+(object.get_IR_analyzer_stops_bits())),
+        bytesize = eval("serial."+ object.get_IR_analyzer_bytesize()))
+
+        ### initialisation interface box ship attribute and connexion
+
+        self.serial_interface_box_chip = serial.Serial(str(object.get_interface_box_chip_serial_port()),
+        baudrate=int(object.get_interface_box_chip_baudrate()),
+        parity=eval("serial." +(object.get_interface_box_chip_parity())),
+        stopbits=eval("serial."+(object.get_interface_box_chip_stops_bits())),
+        bytesize = eval("serial."+ object.get_interface_box_chip_bytesize()))
+
+        ### initialisation oxygen sensor attribute and connexion
+
+        self.serial_oxygen = serial.Serial(str(object.get_oxygen_sensor_serial_port()),
+        baudrate=int(object.get_oxygen_sensor_baudrate()),
+        parity=eval("serial." +(object.get_oxygen_sensor_parity())),
+        stopbits=eval("serial."+(object.get_oxygen_sensor_stops_bits())),
+        bytesize = eval("serial."+ object.get_oxygen_sensor_bytesize()))
+
+        ### initialisation temperature sensor attribute and connexion
+
+        self.serial_temperature = serial.Serial(str(object.get_temperature_sensor_serial_port()),
+        baudrate=int(object.get_temperature_sensor_baudrate()),
+        parity=eval("serial." +(object.get_temperature_sensor_parity())),
+        stopbits=eval("serial."+(object.get_temperature_sensor_stops_bits())),
+        bytesize = eval("serial."+ object.get_temperature_sensor_bytesize()))
+
+
+    ### getter
+
+    def get_serial_gps(self):
+        return self.serial_gps
+
+    def get_serial_IR_analyzer(self):
+        return self.serial_IR_analyzer
+
+    def get_serial_interface_box_chip(self):
+        return self.serial_interface_box_chip
+
+    def get_serial_oxygen(self):
+        return self.serial_oxygen
+
+    def get_serial_temperature(self):
+        return self.serial_temperature
+
+    def get_serial_temperature(self):
+        return self.serial_temperature
+
+class manip():
+    def __init__(self,object):
+        self.first = object.get_t_mesure_med_standard()
+        self.second = object.get_interface_box_chip_stops_bits()
+
+
+
     
 ### class intances
 time = config_time()
@@ -320,4 +397,8 @@ info = connec.get_periph_IR_analyzer()
 print(info)
 print(type(info))
 
-IED.init_elec_device(connec)
+mamanip = manip(time)
+
+serial_information = serial_connexion(connec)
+
+#serial_information = IED.init_elec_device(connec)

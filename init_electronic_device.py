@@ -1,23 +1,11 @@
 import serial
 
-class serial_connexion(cls):
-
-    def __init__(self,cls):
-        self.serial_gps = ser_interface_box_chip = serial.Serial(str(cls.get_interface_box_chip_serial_port()),
-        baudrate=int(cls.get_interface_box_chip_baudrate()),
-        parity=eval("serial." +(cls.get_interface_box_chip_parity())),
-        stopbits=eval("serial."+(cls.get_interface_box_chip_stops_bits())),
-        bytesize = eval("serial."+ cls.get_interface_box_chip_bytesize()))
-
-u = serial_connexion()
-
-
 def init_time(cls):
     w = cls.get_t_mesure_atm_air()
     u = int(w)
 
 def init_elec_device(cls):
-
+    
 
     ### initialisation interface box chip
 
